@@ -1,0 +1,14 @@
+{
+	"name" : "tonisormisson/browser-composer",
+	"description" : "",
+	"license" : "GPL 2.0",
+	"authors" : [{
+			"name" : "Tõnis Ormisson",
+			"email" : "tonis@andmemasin.eu",
+			"role" : "Developer"
+		}
+	],
+	"require": {
+		"facebook/webdriver": "^1.4"
+	}
+}
