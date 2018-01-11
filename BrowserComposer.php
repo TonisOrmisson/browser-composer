@@ -16,13 +16,9 @@ class BrowserComposer
     /** @var boolean */
     public $doInstall = false;
 
-    /** @var bool $installCoposer whether composer needs to be installed or not */
-    public $installCoposer = false;
-
     public function __construct()
     {
         $this->composerPath = __DIR__.'/../';
-        $this->installComposer();
         $this->output = new HtmlOutput();
     }
 
@@ -32,11 +28,11 @@ class BrowserComposer
         }else{
             $this->output->writeln('$');
         }
-
-
     }
 
     private function runComposer(){
+        $this->installComposer();
+
         $this->output->writeln('$ composer install');
 
         try {
@@ -62,12 +58,16 @@ class BrowserComposer
     }
 
     private function installComposer(){
+        $this->output->writeln('$ checking composer');
         $composerPhar = $this->composerPath . '/composer.phar';
         if (!file_exists($composerPhar)) {
+            $this->output->writeln('$ installing composer');
             $data = file_get_contents('https://getcomposer.org/composer.phar');
             echo  $composerPhar;
             file_put_contents($composerPhar, $data);
             unset($data);
+        } else {
+            $this->output->writeln('$ composer exists');
         }
         require_once 'phar://' . str_replace('\\', '/', $this->composerPath) . '/composer.phar/src/bootstrap.php';
 
