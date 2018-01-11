@@ -1,6 +1,6 @@
 {
 	"name" : "tonisormisson/browser-composer",
-	"description" : "",
+	"description" : "A browser-based comoser installer",
 	"license" : "GPL 2.0",
 	"authors" : [{
 			"name" : "Tõnis Ormisson",
@@ -8,7 +8,18 @@
 			"role" : "Developer"
 		}
 	],
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "https://asset-packagist.org"
+		}
+	],
+	"minimum-stability": "dev",
 	"require": {
+		"php": ">=5.4.0",
+		"yiisoft/yii2": "~2.0.13",
+		"yiisoft/yii2-bootstrap": "~2.0.0",
+		"yiisoft/yii2-swiftmailer": "~2.0.0",
 		"facebook/webdriver": "^1.4"
 	}
 }
