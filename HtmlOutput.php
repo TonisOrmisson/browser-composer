@@ -11,9 +11,12 @@ class HtmlOutput extends \Symfony\Component\Console\Output\Output
         parent::__construct($verbosity, $decorated, $formatter);
 
         // tell php to automatically flush after every output
-        $this->disableOb();
+        //$this->disableOb();
     }
 
+    /**
+     * @deprecated is that needed?
+     */
     protected function disableOb()
     {
         // Turn off output buffering
