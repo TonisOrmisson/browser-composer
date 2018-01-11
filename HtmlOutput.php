@@ -14,9 +14,6 @@ class HtmlOutput extends \Symfony\Component\Console\Output\Output
         //$this->disableOb();
     }
 
-    /**
-     * @deprecated is that needed?
-     */
     protected function disableOb()
     {
         // Turn off output buffering
