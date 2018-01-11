@@ -16,7 +16,8 @@
 	],
 	"require": {
 		"php": ">=5.4.0",
-		"ext-zip": "*"
+		"ext-zip": "*",
+		"ext-unzip": "*"
 	},
 	"extra": {
 		"branch-alias": {
