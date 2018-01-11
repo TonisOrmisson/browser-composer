@@ -1,6 +1,6 @@
 {
 	"name" : "tonisormisson/browser-composer",
-	"description" : "A browser-based comoser installer",
+	"description" : "A browser-based composer installer",
 	"license" : "GPL 2.0",
 	"authors" : [{
 			"name" : "Tõnis Ormisson",
