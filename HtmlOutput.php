@@ -40,6 +40,11 @@ class HtmlOutput extends \Symfony\Component\Console\Output\Output
         }
     }
 
+    protected function h($text)
+    {
+        return htmlspecialchars($text);
+    }
+
     public function writeln($messages, $options = 0)
     {
         $this->write($messages, true, $options);
@@ -52,11 +57,12 @@ class HtmlOutput extends \Symfony\Component\Console\Output\Output
 
     protected function doWrite($message, $newline)
     {
-        $message = str_replace("\n", "<br>\n", $message);
 
+        //echo $this->h($message);
         echo $message;
+
         if ($newline) {
-            echo "<br>\n";
+            echo "\n";
         }
         if (ob_get_length()) {
             ob_flush();

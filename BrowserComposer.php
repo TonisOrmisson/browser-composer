@@ -21,19 +21,19 @@ class BrowserComposer
         $this->composerPath = __DIR__.'/../';
         $this->installComposer();
         $this->output = new HtmlOutput();
-        $this->output->writeln('Run: composer update');
     }
 
     public function run(){
+        $this->output->writeln('$ composer install');
 
         try {
             $params = array(
                 'command' => 'install',
-                //'--no-dev' => true,
+                '--no-dev' => true,
                 '--optimize-autoloader' => true,
-                //'--no-suggest' => true,
+                '--no-suggest' => true,
                 '--no-interaction' => true,
-                //'--no-progress' => true
+                '--no-progress' => true
                 //'--verbose' => true
             );
             $input = new ArrayInput($params);
