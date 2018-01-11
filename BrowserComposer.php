@@ -13,6 +13,9 @@ class BrowserComposer
     /** @var string */
     public $composerPath;
 
+    /** @var boolean */
+    public $doInstall = false;
+
     /** @var bool $installCoposer whether composer needs to be installed or not */
     public $installCoposer = false;
 
@@ -24,6 +27,16 @@ class BrowserComposer
     }
 
     public function run(){
+        if($this->doInstall){
+            $this->runComposer();
+        }else{
+            $this->output->writeln('$');
+        }
+
+
+    }
+
+    private function runComposer(){
         $this->output->writeln('$ composer install');
 
         try {
