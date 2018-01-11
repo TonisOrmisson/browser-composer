@@ -19,7 +19,7 @@ class HtmlOutput extends \Symfony\Component\Console\Output\Output
         // Turn off output buffering
         ini_set('output_buffering', 'off');
         // Turn off PHP output compression
-        ini_set('zlib.output_compression', false);
+        //ini_set('zlib.output_compression', false);
         // Implicitly flush the buffer(s)
         ini_set('implicit_flush', true);
         ob_implicit_flush(true);
@@ -40,11 +40,6 @@ class HtmlOutput extends \Symfony\Component\Console\Output\Output
         }
     }
 
-    protected function h($text)
-    {
-        return htmlspecialchars($text, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
-    }
-
     public function writeln($messages, $options = 0)
     {
         $this->write($messages, true, $options);
@@ -58,7 +53,8 @@ class HtmlOutput extends \Symfony\Component\Console\Output\Output
     protected function doWrite($message, $newline)
     {
         $message = str_replace("\n", "<br>\n", $message);
-        echo $this->h($message);
+
+        echo $message;
         if ($newline) {
             echo "<br>\n";
         }

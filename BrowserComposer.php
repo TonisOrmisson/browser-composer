@@ -9,8 +9,16 @@ class BrowserComposer
 {
     /** @var HtmlOutput */
     public $output;
+
+    /** @var string */
+    public $composerPath;
+
+    /** @var bool $installCoposer whether composer needs to be installed or not */
+    public $installCoposer = false;
+
     public function __construct()
     {
+        $this->composerPath = __DIR__.'/../';
         $this->installComposer();
         $this->output = new HtmlOutput();
         $this->output->writeln('Run: composer update');
@@ -41,12 +49,15 @@ class BrowserComposer
     }
 
     private function installComposer(){
-        $composerPhar = __DIR__ . '/composer.phar';
+        $composerPhar = $this->composerPath . '/composer.phar';
         if (!file_exists($composerPhar)) {
             $data = file_get_contents('https://getcomposer.org/composer.phar');
+            echo  $composerPhar;
             file_put_contents($composerPhar, $data);
             unset($data);
         }
+        require_once 'phar://' . str_replace('\\', '/', $this->composerPath) . '/composer.phar/src/bootstrap.php';
+
         require_once __DIR__.DIRECTORY_SEPARATOR."autoloader.php";
 
     }
