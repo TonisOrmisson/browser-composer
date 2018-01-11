@@ -1,7 +1,6 @@
 <?php
 namespace tonisormisson\browsercomposer;
 
-
 header("Content-type: text/html");
 header('X-Accel-Buffering: no');
 
