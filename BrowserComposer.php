@@ -41,7 +41,7 @@ class BrowserComposer
 
         if ($this->doInstall) {
             $this->runComposer();
-        }else {
+        } else {
             $this->output->writeln('$');
         }
     }
