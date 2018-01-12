@@ -30,8 +30,9 @@ class HtmlOutput extends \Symfony\Component\Console\Output\Output
             // End the buffering
             ob_end_clean();
             // If the current level has not changed, abort
-            if (ob_get_level() == $level)
-                break;
+            if (ob_get_level() == $level) {
+                            break;
+            }
         }
         // Disable apache output buffering/compression
         if (function_exists('apache_setenv')) {
