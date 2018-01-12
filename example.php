@@ -23,6 +23,6 @@ putenv('COMPOSER_HOME=' . __DIR__ . '/vendor/bin/composer');
 // Improve performance when the xdebug extension is enabled
 putenv('COMPOSER_DISABLE_XDEBUG_WARN=1');
 
-require_once __DIR__.DIRECTORY_SEPARATOR."BrowserComposer.php";
+require_once __DIR__ . DIRECTORY_SEPARATOR . "BrowserComposer.php";
 $composer = new BrowserComposer();
 $composer->run();

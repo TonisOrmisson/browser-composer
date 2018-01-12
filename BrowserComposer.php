@@ -25,28 +25,28 @@ class BrowserComposer
 
     public function __construct()
     {
-        $this->composerPath = __DIR__.'/../';
+        $this->composerPath = __DIR__ . '/../';
         $this->installComposer();
-        require_once __DIR__.DIRECTORY_SEPARATOR.'HtmlOutput.php';
+        require_once __DIR__ . DIRECTORY_SEPARATOR . 'HtmlOutput.php';
         $this->output = new HtmlOutput();
         putenv('COMPOSER_HOME=' . __DIR__ . '/vendor/bin/composer');
         // Improve performance when the xdebug extension is enabled
         //putenv('COMPOSER_DISABLE_XDEBUG_WARN=1');
     }
 
-    public function run(){
-        if($this->deleteCurrent){
+    public function run() {
+        if ($this->deleteCurrent) {
             $this->deleteCurrentDependencies();
         }
 
-        if($this->doInstall){
+        if ($this->doInstall) {
             $this->runComposer();
-        }else{
+        }else {
             $this->output->writeln('$');
         }
     }
 
-    private function deleteCurrentDependencies(){
+    private function deleteCurrentDependencies() {
 
         try {
             $this->output->writeln('$ rm -rf vendor/*');
@@ -56,7 +56,7 @@ class BrowserComposer
         }
     }
 
-    private function runComposer(){
+    private function runComposer() {
 
         $this->output->writeln('$ composer install');
 
@@ -84,7 +84,7 @@ class BrowserComposer
 
     }
 
-    private function installComposer(){
+    private function installComposer() {
         $composerPhar = $this->composerPath . '/composer.phar';
         if (!file_exists($composerPhar)) {
             $data = file_get_contents('https://getcomposer.org/composer.phar');
