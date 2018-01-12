@@ -2,6 +2,7 @@ composer.phar
 
 .*
 !.gitignore
+!.scrutinizer.yml
 
 vendor/*
 !vendor/.gitkeep
